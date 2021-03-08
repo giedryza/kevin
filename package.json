@@ -7,7 +7,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "browserslist": "npx browserslist"
+    "compile": "tsc",
+    "browserslist": "npx browserslist",
+    "lint:code": "npx eslint src --ext .ts,.tsx",
+    "lint:code:fix": "yarn lint:code --fix",
+    "lint:styles": "npx stylelint \"**/*.scss\"",
+    "lint:styles:fix": "yarn lint:styles --fix",
+    "lint:code-style": "npx prettier --check \"src/**\"",
+    "lint:code-style:fix": "npx prettier --write \"src/**\"",
+    "test:lint": "yarn lint:code && yarn lint:code-style && yarn lint:styles && yarn compile"
   },
   "dependencies": {
     "react": "^17.0.1",
@@ -18,6 +26,20 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.8",
+    "stylelint": "^13.12.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
     "typescript": "^4.1.2"
   }
 }

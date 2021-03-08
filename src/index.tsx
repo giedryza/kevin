@@ -1,8 +1,9 @@
-import { StrictMode } from "react";
-import { render } from "react-dom";
-import { App } from "app";
+import { StrictMode } from 'react';
+import { render } from 'react-dom';
 
-const root = document.getElementById("root") as HTMLDivElement;
+import { App } from 'app';
+
+const root = document.getElementById('root') as HTMLDivElement;
 
 const app: JSX.Element = (
   <StrictMode>
