@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import { FC, useMemo, AllHTMLAttributes, AriaAttributes } from 'react';
+import { FC, useMemo, AriaAttributes, HTMLAttributes } from 'react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 
 import 'ui/button/button.styles.scss';
@@ -48,7 +48,7 @@ export const Button: FC<Props> = ({
     [icon, label]
   );
 
-  const attributes: AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> = {
+  const attributes: HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> = {
     className: `button --${styleType} --${size}`,
     onClick,
     title,
