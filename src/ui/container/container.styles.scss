@@ -1,0 +1,12 @@
+@import 'src/styles/mixins';
+
+.container {
+  font-size: 1rem;
+
+  width: 100%;
+  padding: 2.5em;
+
+  @include tablet {
+    font-size: 2rem;
+  }
+}
