@@ -2,17 +2,17 @@ import { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { routes } from 'config/routes';
-import { Home } from 'pages/home/home.page';
-import { Favourites } from 'pages/favourites/favourites.page';
+import { HomePage } from 'pages/home/home.page';
+import { FavouritesPage } from 'pages/favourites/favourites.page';
 
 export const Routes: FC = () => {
   return (
     <Switch>
       <Route path={routes.favourites}>
-        <Favourites />
+        <FavouritesPage />
       </Route>
       <Route path={routes.home}>
-        <Home />
+        <HomePage />
       </Route>
     </Switch>
   );
