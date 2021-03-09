@@ -1,0 +1,25 @@
+@import 'styles/variables';
+
+@mixin tablet {
+  @media screen and (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin high-contrast {
+  @media screen and (-ms-high-contrast: active) {
+    @content;
+  }
+}

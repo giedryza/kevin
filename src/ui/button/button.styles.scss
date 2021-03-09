@@ -1,0 +1,106 @@
+@import 'styles/mixins';
+
+.button {
+  --button-outline: var(--color-95);
+
+  --button-color-primary: var(--color-100);
+  --button-background-primary: var(--color-primary);
+  --button-background-primary-hover: var(--color-primary-dark);
+
+  --button-color-secondary: var(--color-100);
+  --button-background-secondary: var(--color-51);
+  --button-background-secondary-hover: var(--color-60);
+
+  border: 0;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include high-contrast {
+    border: 2px solid currentcolor;
+  }
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-weight: 500;
+  padding: 0.8em;
+  border-radius: 1rem;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 200ms;
+  word-break: normal;
+
+  @include spacing(x, 0.8em);
+
+  &:focus {
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2px var(--button-outline);
+
+    &:not(:focus-visible) {
+      box-shadow: none;
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--button-outline);
+  }
+
+  &[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  &.--primary {
+    color: var(--button-color-primary);
+    background-color: var(--button-background-primary);
+
+    &:hover,
+    &:active {
+      &:not([disabled]) {
+        background-color: var(--button-background-primary-hover);
+      }
+    }
+  }
+
+  &.--secondary {
+    color: var(--button-color-secondary);
+    background-color: var(--button-background-secondary);
+
+    &:hover,
+    &:active {
+      &:not([disabled]) {
+        background-color: var(--button-background-secondary-hover);
+      }
+    }
+  }
+
+  &.--sm {
+    font-size: 1rem;
+  }
+
+  &.--md {
+    font-size: 1.5rem;
+
+    @include tablet {
+      font-size: 2rem;
+    }
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: 1.4em;
+  }
+
+  &__icon {
+    stroke: currentcolor;
+    width: 1.5em;
+    height: 1.5em;
+    flex-shrink: 0;
+  }
+}
