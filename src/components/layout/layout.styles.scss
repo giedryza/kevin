@@ -1,0 +1,10 @@
+@import 'styles/mixins';
+
+.layout {
+  padding-bottom: $nav-horizontal-height;
+
+  @include tablet {
+    padding-bottom: 0;
+    padding-left: $nav-vertical-width;
+  }
+}

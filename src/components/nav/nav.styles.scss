@@ -1,0 +1,43 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: $nav-horizontal-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-23);
+  padding: 0 2.4rem;
+
+  @include tablet {
+    top: 0;
+    bottom: auto;
+    flex-direction: column;
+    width: $nav-vertical-width;
+    height: 100%;
+    padding: 5rem 0;
+  }
+
+  &__links {
+    display: flex;
+
+    @include spacing(x, 0.5rem);
+
+    @include tablet {
+      display: block;
+
+      @include spacing(x, 0);
+      @include spacing(y, 0.5rem);
+    }
+  }
+
+  &__logo {
+    display: block;
+    fill: var(--color-100);
+    width: 2.4rem;
+  }
+}

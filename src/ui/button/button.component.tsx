@@ -56,7 +56,7 @@ export const Button: FC<Props> = ({
   };
 
   return url ? (
-    <NavLink {...attributes} activeClassName="--active" to={url}>
+    <NavLink {...attributes} activeClassName="--active" exact to={url}>
       {content}
     </NavLink>
   ) : (
