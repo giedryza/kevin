@@ -16,7 +16,7 @@ export interface NormalisedValues<T> {
   byId: Record<string, T>;
 }
 
-export const normaliseValue = <T extends { id: string }>(
+const normaliseValue = <T extends { id: string }>(
   state: NormalisedValues<T>,
   option: T
 ): NormalisedValues<T> => {

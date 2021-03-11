@@ -1,6 +1,6 @@
 import qs, { ParsedQuery } from 'query-string';
 
-export type Params = ParsedQuery<string>;
+type Params = ParsedQuery<string>;
 
 class Router {
   stringifyParams = (params: Record<string, string | number>) =>

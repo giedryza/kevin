@@ -7,6 +7,7 @@ import { store } from 'state/store';
 import { Routes } from 'core/routes';
 import { Initialiser } from 'core/initialiser';
 import { Layout } from 'components/layout/layout.component';
+import { Modal } from 'components/modal/modal.component';
 
 export const App: FC = () => {
   return (
@@ -15,6 +16,8 @@ export const App: FC = () => {
         <Initialiser>
           <Layout>
             <Routes />
+
+            <Modal />
           </Layout>
         </Initialiser>
       </Router>
