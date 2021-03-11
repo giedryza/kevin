@@ -8,14 +8,12 @@ interface Props {
   onClose: () => void;
 }
 
-export const ModalLayout: FC<Props> = ({ titleId, onClose, children }) => {
-  return (
-    <FocusTrap>
-      <div className="modal" aria-modal aria-labelledby={titleId} role="dialog">
-        <div className="modal__backdrop" onClick={onClose} aria-hidden />
+export const ModalLayout: FC<Props> = ({ titleId, onClose, children }) => (
+  <FocusTrap>
+    <div className="modal" aria-modal aria-labelledby={titleId} role="dialog">
+      <div className="modal__backdrop" onClick={onClose} aria-hidden />
 
-        <div className="modal__content">{children}</div>
-      </div>
-    </FocusTrap>
-  );
-};
+      <div className="modal__content">{children}</div>
+    </div>
+  </FocusTrap>
+);
