@@ -22,6 +22,9 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
   return (
     <ModalLayout titleId={TITLE_ID} onClose={closeModal}>
       <h1>{imageId}</h1>
+      <button type="button" onClick={closeModal}>
+        CLOSE
+      </button>
     </ModalLayout>
   );
 };

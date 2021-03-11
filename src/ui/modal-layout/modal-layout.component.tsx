@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import FocusTrap from 'focus-trap-react';
 
 import 'ui/modal-layout/modal-layout.styles.scss';
 
@@ -9,10 +10,12 @@ interface Props {
 
 export const ModalLayout: FC<Props> = ({ titleId, onClose, children }) => {
   return (
-    <div className="modal" aria-modal aria-labelledby={titleId} role="dialog">
-      <div className="modal__backdrop" onClick={onClose} aria-hidden />
+    <FocusTrap>
+      <div className="modal" aria-modal aria-labelledby={titleId} role="dialog">
+        <div className="modal__backdrop" onClick={onClose} aria-hidden />
 
-      <div className="modal__content">{children}</div>
-    </div>
+        <div className="modal__content">{children}</div>
+      </div>
+    </FocusTrap>
   );
 };
