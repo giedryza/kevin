@@ -5,6 +5,7 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  z-index: $z-nav;
   width: 100%;
   height: $nav-horizontal-height;
   display: flex;
