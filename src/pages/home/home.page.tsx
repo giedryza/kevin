@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 
 import { Home } from 'components/home/home.component';
 import { Container } from 'ui/container/container.component';
-import { getImages } from 'state/images/images.thunks';
+import { initHomePage } from 'state/pages/pages.thunks';
 
 export const HomePage: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getImages());
+    dispatch(initHomePage());
   }, [dispatch]);
 
   return (

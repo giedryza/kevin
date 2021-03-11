@@ -6,4 +6,6 @@ export const ImagesActions = {
     createAction(ImagesActionTypes.SetLoading, payload),
   updateImages: (payload: NormalisedValues<Image>) =>
     createAction(ImagesActionTypes.updateImages, payload),
+  setActiveImage: (payload: string | null) =>
+    createAction(ImagesActionTypes.setActiveImage, payload),
 };

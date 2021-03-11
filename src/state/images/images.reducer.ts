@@ -5,6 +5,7 @@ import { ImagesActionTypes, ImagesState } from 'state/images/images.types';
 const INITIAL_STATE: ImagesState = {
   ids: [],
   byId: {},
+  activeImage: null,
   isLoading: false,
 };
 
@@ -23,6 +24,11 @@ const reducer = (
         ...state,
         ids: [...state.ids, ...action.payload.ids],
         byId: { ...state.byId, ...action.payload.byId },
+      };
+    case ImagesActionTypes.setActiveImage:
+      return {
+        ...state,
+        activeImage: action.payload,
       };
     default:
       return state;
