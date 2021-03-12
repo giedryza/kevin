@@ -1,14 +1,19 @@
 @import 'styles/mixins';
 
 .image-modal {
+  position: relative;
+
   @include tablet {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    min-height: 65rem;
   }
 
   &__image-container {
-    position: relative;
     background-color: hsla(var(--color-h), var(--color-s), 17%, 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__image {
@@ -26,6 +31,12 @@
     top: 0;
     left: 0;
     width: 100%;
+
+    @include tablet {
+      position: static;
+      padding: 0;
+      margin-bottom: 2.4rem;
+    }
   }
 
   &__info-container {
@@ -35,12 +46,12 @@
     @include tablet {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
   }
 
   &__header {
     margin-bottom: 1.2rem;
+    flex-grow: 1;
 
     @include spacing(y, 1.2rem);
   }

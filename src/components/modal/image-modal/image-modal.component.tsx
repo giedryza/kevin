@@ -48,6 +48,9 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
             src={image.urls.regular}
             alt={image.alt_description}
           />
+        </div>
+
+        <div className="image-modal__info-container">
           <div className="image-modal__actions">
             <Button
               label="Like"
@@ -62,9 +65,7 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
               onClick={closeModal}
             />
           </div>
-        </div>
 
-        <div className="image-modal__info-container">
           <div className="image-modal__header">
             <h1 className="image-modal__title" id={TITLE_ID}>
               {image.description || 'Unknown'}
