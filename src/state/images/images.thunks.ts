@@ -1,4 +1,5 @@
 import { endpoints } from 'config/endpoints';
+import { AppErrorActions } from 'state/app-error/app-error.actions';
 import { ImagesActions } from 'state/images/images.actions';
 import { isImageWithDetails } from 'state/images/images.selectors';
 import { Image, ImageDetails } from 'state/images/images.types';
@@ -20,7 +21,7 @@ export const getImages = (): PromiseThunk => async (dispatch) => {
 
     dispatch(ImagesActions.updateImages({ ids, byId }));
   } catch (error) {
-    console.error(error);
+    dispatch(AppErrorActions.setError(error.message || 'Something went wrong'));
   } finally {
     dispatch(ImagesActions.setLoading(false));
   }
@@ -36,7 +37,7 @@ export const fetchImageDetails = (id: string): PromiseThunk => async (
 
     dispatch(ImagesActions.setImageDetails(data));
   } catch (error) {
-    console.error(error);
+    dispatch(AppErrorActions.setError(error.message || 'Something went wrong'));
   } finally {
     dispatch(ImagesActions.setDetailsLoading(false));
   }

@@ -1,0 +1,32 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.toast {
+  font-size: 1rem;
+
+  position: fixed;
+  top: 2.5rem;
+  right: 2.5rem;
+  z-index: $z-toast;
+
+  display: flex;
+  align-items: center;
+  max-width: 40rem;
+  background-color: var(--color-35);
+  padding: 0.75em 1.25em;
+  border-radius: 1em;
+
+  @include spacing(x, 1em);
+
+  &__icon {
+    width: 2.5em;
+    height: 2.5em;
+    stroke: var(--color-100);
+    flex-shrink: 0;
+  }
+
+  &__message {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+}

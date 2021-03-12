@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -31,11 +31,11 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
     selectImageDetails(state, imageId)
   );
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     history.push({
       search: router.stringifyParams({ id: '' }),
     });
-  };
+  }, [history]);
 
   if (!image) return null;
 

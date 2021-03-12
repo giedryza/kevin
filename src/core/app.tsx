@@ -8,6 +8,7 @@ import { Routes } from 'core/routes';
 import { Initialiser } from 'core/initialiser';
 import { Layout } from 'components/layout/layout.component';
 import { Modal } from 'components/modal/modal.component';
+import { ErrorToast } from 'components/error-toast/error-toast.component';
 
 export const App: FC = () => {
   return (
@@ -18,6 +19,7 @@ export const App: FC = () => {
             <Routes />
 
             <Modal />
+            <ErrorToast />
           </Layout>
         </Initialiser>
       </Router>
