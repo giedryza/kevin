@@ -18,15 +18,15 @@ export interface NormalisedValues<T> {
 
 const normaliseValue = <T extends { id: string }>(
   state: NormalisedValues<T>,
-  option: T
+  record: T
 ): NormalisedValues<T> => {
-  const id = <string>option.id;
+  const id = <string>record.id;
 
   return {
     ids: [...state.ids, id],
     byId: {
       ...state.byId,
-      [id]: { ...option },
+      [id]: { ...record },
     },
   };
 };

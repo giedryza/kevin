@@ -6,7 +6,12 @@ const INITIAL_STATE: ImagesState = {
   ids: [],
   byId: {},
   activeImage: null,
+  details: {
+    ids: [],
+    byId: {},
+  },
   isLoading: false,
+  isDetailsLoading: false,
 };
 
 const reducer = (
@@ -19,6 +24,11 @@ const reducer = (
         ...state,
         isLoading: action.payload,
       };
+    case ImagesActionTypes.SetDetailsLoading:
+      return {
+        ...state,
+        isDetailsLoading: action.payload,
+      };
     case ImagesActionTypes.updateImages:
       return {
         ...state,
@@ -29,6 +39,17 @@ const reducer = (
       return {
         ...state,
         activeImage: action.payload,
+      };
+    case ImagesActionTypes.setImageDetails:
+      return {
+        ...state,
+        details: {
+          ids: [...state.details.ids, action.payload.id],
+          byId: {
+            ...state.details.byId,
+            [action.payload.id]: action.payload,
+          },
+        },
       };
     default:
       return state;
