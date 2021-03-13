@@ -2,12 +2,15 @@ import { useLayoutEffect } from 'react';
 
 export const useBodyScrollLock = () => {
   useLayoutEffect(() => {
-    const originalStyle = window.getComputedStyle(document.body).overflow;
+    const body = document.querySelector('body') as HTMLBodyElement;
+    const scrollbarWidth = window.innerWidth - body.clientWidth;
 
-    document.body.style.overflow = 'hidden';
-
+    body.setAttribute(
+      'style',
+      `overflow: hidden; padding-right: ${scrollbarWidth}px;`
+    );
     return () => {
-      document.body.style.overflow = originalStyle;
+      body.removeAttribute('style');
     };
   }, []);
 };
