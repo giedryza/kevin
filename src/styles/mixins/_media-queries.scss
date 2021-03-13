@@ -18,6 +18,12 @@
   }
 }
 
+@mixin wide-desktop {
+  @media screen and (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
 @mixin high-contrast {
   @media screen and (-ms-high-contrast: active) {
     @content;
