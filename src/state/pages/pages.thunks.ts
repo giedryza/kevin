@@ -1,11 +1,11 @@
-import { PromiseThunk, Thunk } from 'state/types';
+import { PromiseThunk, Thunk } from 'utils/redux/types';
 import { getImages } from 'state/images/images.thunks';
-import { router } from 'utils/router';
+import { router } from 'utils/lib/router';
 import { ImagesActions } from 'state/images/images.actions';
-import { api } from 'utils/api';
+import { api } from 'utils/lib/api';
 import { endpoints } from 'config/endpoints';
 import { Image } from 'state/images/images.types';
-import { normaliseValues } from 'utils/redux';
+import { normaliseValues } from 'utils/redux/utils';
 import { AppErrorActions } from 'state/app-error/app-error.actions';
 import { GENERIC_ERROR } from 'state/app-error/app-error.constants';
 

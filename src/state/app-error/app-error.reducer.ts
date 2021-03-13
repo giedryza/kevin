@@ -1,4 +1,4 @@
-import { ActionsUnion } from 'state/types';
+import { ActionsUnion } from 'utils/redux/types';
 import { AppErrorActions } from 'state/app-error/app-error.actions';
 import {
   AppErrorActionTypes,

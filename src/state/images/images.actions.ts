@@ -1,4 +1,5 @@
-import { createAction, NormalisedValues } from 'utils/redux';
+import { createAction } from 'utils/redux/utils';
+import { NormalisedValues } from 'utils/redux/types';
 import {
   Image,
   ImageDetails,

@@ -1,4 +1,4 @@
-import { ActionsUnion } from 'state/types';
+import { ActionsUnion } from 'utils/redux/types';
 import { ImagesActions } from 'state/images/images.actions';
 import { ImagesActionTypes, ImagesState } from 'state/images/images.types';
 

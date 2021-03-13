@@ -3,13 +3,13 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ImageModal as Component } from 'components/modal/image-modal/image-modal.component';
-import { router } from 'utils/router';
+import { router } from 'utils/lib/router';
 import {
   addToFavourites,
   removeFromFavourites,
   getImageDetails,
 } from 'state/images/images.thunks';
-import { State } from 'state/types';
+import { State } from 'utils/redux/types';
 import {
   isImageInFavourites,
   selectImageDetails,

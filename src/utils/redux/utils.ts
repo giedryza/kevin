@@ -1,4 +1,4 @@
-import { Action } from 'state/types';
+import { Action, NormalisedValues } from 'utils/redux/types';
 
 export function createAction<T extends string>(type: T): Action<T>;
 export function createAction<T extends string, P>(
@@ -9,11 +9,6 @@ export function createAction<T extends string, P>(type: T, payload?: P) {
   const action = payload === undefined ? { type } : { type, payload };
 
   return action;
-}
-
-export interface NormalisedValues<T> {
-  ids: string[];
-  byId: Record<string, T>;
 }
 
 const normaliseValue = <T extends { id: string }>(

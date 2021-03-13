@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { ImageCard as Component } from 'components/image-card/image-card.component';
-import { State } from 'state/types';
-import { router } from 'utils/router';
+import { State } from 'utils/redux/types';
+import { router } from 'utils/lib/router';
 import {
   isImageInFavourites,
   selectImageById,

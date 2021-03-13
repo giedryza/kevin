@@ -15,3 +15,8 @@ export type Thunk = GenericThunk<void>;
 export type PromiseThunk<P = {} | void> = GenericThunk<Promise<P>>;
 
 export type { State };
+
+export interface NormalisedValues<T> {
+  ids: string[];
+  byId: Record<string, T>;
+}

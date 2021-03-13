@@ -2,7 +2,7 @@ import { FC } from 'react';
 import FocusTrap from 'focus-trap-react';
 
 import 'ui/modal-layout/modal-layout.styles.scss';
-import { useBodyScrollLock } from 'utils/use-body-scroll-lock';
+import { useBodyScrollLock } from 'utils/hooks/use-body-scroll-lock';
 
 interface Props {
   titleId: string;
