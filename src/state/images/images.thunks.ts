@@ -1,5 +1,6 @@
 import { endpoints } from 'config/endpoints';
 import { AppErrorActions } from 'state/app-error/app-error.actions';
+import { GENERIC_ERROR } from 'state/app-error/app-error.constants';
 import { ImagesActions } from 'state/images/images.actions';
 import { FAVOURITE_IMAGES_STORAGE_KEY } from 'state/images/images.constants';
 import { isImageWithDetails } from 'state/images/images.selectors';
@@ -23,7 +24,7 @@ export const getImages = (): PromiseThunk => async (dispatch) => {
 
     dispatch(ImagesActions.updateImages({ ids, byId }));
   } catch (error) {
-    dispatch(AppErrorActions.setError(error.message || 'Something went wrong'));
+    dispatch(AppErrorActions.setError(error.message || GENERIC_ERROR));
   } finally {
     dispatch(ImagesActions.setLoading(false));
   }
@@ -39,7 +40,7 @@ export const fetchImageDetails = (id: string): PromiseThunk => async (
 
     dispatch(ImagesActions.setImageDetails(data));
   } catch (error) {
-    dispatch(AppErrorActions.setError(error.message || 'Something went wrong'));
+    dispatch(AppErrorActions.setError(error.message || GENERIC_ERROR));
   } finally {
     dispatch(ImagesActions.setDetailsLoading(false));
   }
