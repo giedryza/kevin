@@ -26,7 +26,9 @@ const normaliseValue = <T extends { id: string }>(
   };
 };
 
-export const normaliseValues = <T extends { id: string }>(values: T[]) =>
+export const normaliseValues = <T extends { id: string }>(
+  values: T[]
+): NormalisedValues<T> =>
   values.reduce(normaliseValue, <NormalisedValues<T>>{
     ids: [],
     byId: {},
