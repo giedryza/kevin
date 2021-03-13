@@ -11,8 +11,11 @@ export const Initialiser: FC = ({ children }) => {
 
   useEffect(() => {
     dispatch(paramsListener(search));
-    dispatch(setFavourites());
   }, [dispatch, search]);
+
+  useEffect(() => {
+    dispatch(setFavourites());
+  }, [dispatch]);
 
   return <>{children}</>;
 };
