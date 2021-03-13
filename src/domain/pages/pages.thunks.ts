@@ -1,13 +1,13 @@
 import { PromiseThunk, Thunk } from 'utils/redux/types';
-import { getImages } from 'state/images/images.thunks';
+import { getImages } from 'domain/images/images.thunks';
 import { router } from 'utils/lib/router';
-import { ImagesActions } from 'state/images/images.actions';
+import { ImagesActions } from 'domain/images/images.actions';
 import { api } from 'utils/lib/api';
 import { endpoints } from 'config/endpoints';
-import { Image } from 'state/images/images.types';
+import { Image } from 'domain/images/images.types';
 import { normaliseValues } from 'utils/redux/utils';
-import { AppErrorActions } from 'state/app-error/app-error.actions';
-import { GENERIC_ERROR } from 'state/app-error/app-error.constants';
+import { AppErrorActions } from 'domain/app-error/app-error.actions';
+import { GENERIC_ERROR } from 'domain/app-error/app-error.constants';
 
 export const paramsListener = (search: string): Thunk => (
   dispatch,

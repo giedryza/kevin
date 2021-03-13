@@ -1,6 +1,6 @@
 import { ThunkAction } from 'redux-thunk';
 
-import { RootState as State } from 'state/root.reducer';
+import { RootState as State } from 'domain/root.reducer';
 
 export type ActionsUnion<A extends Record<string, AnyFunction>> = ReturnType<
   A[keyof A]

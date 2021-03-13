@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, Middleware, StoreEnhancer } from 'redux';
 import thunk from 'redux-thunk';
 
-import { rootReducer } from 'state/root.reducer';
+import { rootReducer } from 'domain/root.reducer';
 
 class Store {
   private middlewares: Middleware[] = [thunk];

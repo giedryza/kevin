@@ -1,4 +1,4 @@
-import { Exif } from 'state/images/images.types';
+import { Exif } from 'domain/images/images.types';
 
 interface Meta {
   title: string;

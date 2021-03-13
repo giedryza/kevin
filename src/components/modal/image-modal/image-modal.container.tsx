@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { ImageModal as Component } from 'components/modal/image-modal/image-modal.component';
 import { router } from 'utils/lib/router';
+import { State } from 'utils/redux/types';
 import {
   addToFavourites,
   removeFromFavourites,
   getImageDetails,
-} from 'state/images/images.thunks';
-import { State } from 'utils/redux/types';
+} from 'domain/images/images.thunks';
 import {
   isImageInFavourites,
   selectImageDetails,
-} from 'state/images/images.selectors';
+} from 'domain/images/images.selectors';
 
 interface Props {
   imageId: string;

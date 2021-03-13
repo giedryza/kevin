@@ -3,7 +3,7 @@ import { FC } from 'react';
 import 'components/image-card/image-card.styles.scss';
 import { Button } from 'ui/button/button.component';
 import { IconName } from 'ui/icon/icon.component';
-import { Image } from 'state/images/images.types';
+import { Image } from 'domain/images/images.types';
 
 interface Props {
   image: Image;

@@ -1,5 +1,5 @@
 import { State } from 'utils/redux/types';
-import { Image, ImageDetails } from 'state/images/images.types';
+import { Image, ImageDetails } from 'domain/images/images.types';
 
 export const selectImageById = (state: State, id: string): Image | null =>
   state.images.byId[id] ?? null;

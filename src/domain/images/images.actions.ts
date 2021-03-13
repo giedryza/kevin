@@ -4,7 +4,7 @@ import {
   Image,
   ImageDetails,
   ImagesActionTypes,
-} from 'state/images/images.types';
+} from 'domain/images/images.types';
 
 export const ImagesActions = {
   setLoading: (payload: boolean) =>

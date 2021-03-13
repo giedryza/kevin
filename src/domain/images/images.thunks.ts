@@ -1,10 +1,10 @@
 import { endpoints } from 'config/endpoints';
-import { AppErrorActions } from 'state/app-error/app-error.actions';
-import { GENERIC_ERROR } from 'state/app-error/app-error.constants';
-import { ImagesActions } from 'state/images/images.actions';
-import { FAVOURITE_IMAGES_STORAGE_KEY } from 'state/images/images.constants';
-import { isImageWithDetails } from 'state/images/images.selectors';
-import { Image, ImageDetails } from 'state/images/images.types';
+import { AppErrorActions } from 'domain/app-error/app-error.actions';
+import { GENERIC_ERROR } from 'domain/app-error/app-error.constants';
+import { ImagesActions } from 'domain/images/images.actions';
+import { FAVOURITE_IMAGES_STORAGE_KEY } from 'domain/images/images.constants';
+import { isImageWithDetails } from 'domain/images/images.selectors';
+import { Image, ImageDetails } from 'domain/images/images.types';
 import { PromiseThunk, Thunk } from 'utils/redux/types';
 import { api } from 'utils/lib/api';
 import { normaliseValues } from 'utils/redux/utils';

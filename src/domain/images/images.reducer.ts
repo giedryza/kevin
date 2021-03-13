@@ -1,6 +1,6 @@
 import { ActionsUnion } from 'utils/redux/types';
-import { ImagesActions } from 'state/images/images.actions';
-import { ImagesActionTypes, ImagesState } from 'state/images/images.types';
+import { ImagesActions } from 'domain/images/images.actions';
+import { ImagesActionTypes, ImagesState } from 'domain/images/images.types';
 
 const INITIAL_STATE: ImagesState = {
   ids: [],

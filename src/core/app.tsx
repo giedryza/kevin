@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import 'styles/index.scss';
-import { store } from 'state/store';
+import { store } from 'domain/store';
 import { Routes } from 'core/routes';
 import { Initialiser } from 'core/initialiser';
 import { Layout } from 'components/layout/layout.component';

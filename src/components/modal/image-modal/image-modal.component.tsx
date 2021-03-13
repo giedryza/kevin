@@ -8,7 +8,7 @@ import {
 } from 'components/modal/image-modal/image-modal.constants';
 import { Button } from 'ui/button/button.component';
 import { Icon, IconName } from 'ui/icon/icon.component';
-import { ImageDetails } from 'state/images/images.types';
+import { ImageDetails } from 'domain/images/images.types';
 
 interface Props {
   image: ImageDetails;

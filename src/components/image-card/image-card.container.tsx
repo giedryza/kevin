@@ -8,8 +8,8 @@ import { router } from 'utils/lib/router';
 import {
   isImageInFavourites,
   selectImageById,
-} from 'state/images/images.selectors';
-import { removeFromFavourites } from 'state/images/images.thunks';
+} from 'domain/images/images.selectors';
+import { removeFromFavourites } from 'domain/images/images.thunks';
 
 interface Props {
   id: string;

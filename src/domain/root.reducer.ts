@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import images from 'state/images/images.reducer';
-import appError from 'state/app-error/app-error.reducer';
+import images from 'domain/images/images.reducer';
+import appError from 'domain/app-error/app-error.reducer';
 
 export const rootReducer = combineReducers({
   images,
