@@ -16,4 +16,10 @@ export const ImagesActions = {
     createAction(ImagesActionTypes.setActiveImage, payload),
   setImageDetails: (payload: ImageDetails) =>
     createAction(ImagesActionTypes.setImageDetails, payload),
+  addToFavourites: (payload: string) =>
+    createAction(ImagesActionTypes.addToFavourites, payload),
+  removeFromFavourites: (payload: string) =>
+    createAction(ImagesActionTypes.removeFromFavourites, payload),
+  setFavourites: (payload: string[]) =>
+    createAction(ImagesActionTypes.setFavourites, payload),
 };

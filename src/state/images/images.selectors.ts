@@ -11,3 +11,6 @@ export const selectImageDetails = (
 
 export const isImageWithDetails = (state: State, id: string): boolean =>
   !!selectImageDetails(state, id);
+
+export const isImageInFavourites = (state: State, id: string) =>
+  state.images.favourites.includes(id);

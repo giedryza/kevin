@@ -5,6 +5,7 @@ import { ImagesActionTypes, ImagesState } from 'state/images/images.types';
 const INITIAL_STATE: ImagesState = {
   ids: [],
   byId: {},
+  favourites: [],
   activeImage: null,
   details: {
     ids: [],
@@ -50,6 +51,21 @@ const reducer = (
             [action.payload.id]: action.payload,
           },
         },
+      };
+    case ImagesActionTypes.addToFavourites:
+      return {
+        ...state,
+        favourites: [...state.favourites, action.payload],
+      };
+    case ImagesActionTypes.removeFromFavourites:
+      return {
+        ...state,
+        favourites: state.favourites.filter((id) => id !== action.payload),
+      };
+    case ImagesActionTypes.setFavourites:
+      return {
+        ...state,
+        favourites: action.payload,
       };
     default:
       return state;

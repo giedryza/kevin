@@ -9,9 +9,16 @@ import {
   META,
   TITLE_ID,
 } from 'components/modal/image-modal/image-modal.constants';
-import { getImageDetails } from 'state/images/images.thunks';
+import {
+  addToFavourites,
+  removeFromFavourites,
+  getImageDetails,
+} from 'state/images/images.thunks';
 import { State } from 'state/types';
-import { selectImageDetails } from 'state/images/images.selectors';
+import {
+  isImageInFavourites,
+  selectImageDetails,
+} from 'state/images/images.selectors';
 import { Button } from 'ui/button/button.component';
 import { Icon, IconName } from 'ui/icon/icon.component';
 
@@ -30,12 +37,19 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
   const image = useSelector((state: State) =>
     selectImageDetails(state, imageId)
   );
+  const isInFavourites = useSelector((state: State) =>
+    isImageInFavourites(state, imageId)
+  );
 
   const closeModal = useCallback(() => {
     history.push({
       search: router.stringifyParams({ id: '' }),
     });
   }, [history]);
+
+  const like = () => dispatch(addToFavourites(imageId));
+
+  const unlike = () => dispatch(removeFromFavourites(imageId));
 
   if (!image) return null;
 
@@ -52,12 +66,22 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
 
         <div className="image-modal__info-container">
           <div className="image-modal__actions">
-            <Button
-              label="Like"
-              icon={IconName.Heart}
-              styleType="secondary"
-              onClick={() => console.log('like')}
-            />
+            {isInFavourites ? (
+              <Button
+                label="Unlike"
+                icon={IconName.Heart}
+                styleType="primary"
+                onClick={unlike}
+              />
+            ) : (
+              <Button
+                label="Like"
+                icon={IconName.Heart}
+                styleType="secondary"
+                onClick={like}
+              />
+            )}
+
             <Button
               ariaLabel="Close"
               icon={IconName.Close}

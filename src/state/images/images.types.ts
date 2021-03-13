@@ -34,11 +34,15 @@ export enum ImagesActionTypes {
   updateImages = 'images/UPDATE_IMAGES',
   setActiveImage = 'images/SET_ACTIVE_IMAGE',
   setImageDetails = 'images/SET_IMAGE_DETAILS',
+  addToFavourites = 'images/ADD_TO_FAVOURITES',
+  removeFromFavourites = 'images/REMOVE_FROM_FAVOURITES',
+  setFavourites = 'images/SET_FAVOURITES',
 }
 
 export interface ImagesState {
   ids: string[];
   byId: Record<string, Image>;
+  favourites: string[];
   activeImage: string | null;
   details: {
     ids: string[];
