@@ -30,9 +30,7 @@ export const getImages = (): PromiseThunk => async (dispatch) => {
   }
 };
 
-export const fetchImageDetails = (id: string): PromiseThunk => async (
-  dispatch
-) => {
+const fetchImageDetails = (id: string): PromiseThunk => async (dispatch) => {
   try {
     dispatch(ImagesActions.setDetailsLoading(true));
 

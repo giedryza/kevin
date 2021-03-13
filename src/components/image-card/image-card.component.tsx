@@ -17,29 +17,23 @@ export const ImageCard: FC<Props> = ({
   isLiked,
   onCardClick,
   onUnlikeClick,
-}) => {
-  return (
-    <div className="image-card">
-      <button
-        className="image-card__button"
-        type="button"
-        onClick={onCardClick}
-      >
-        <img
-          className="image-card__image"
-          src={image.urls.small}
-          alt={image.alt_description}
+}) => (
+  <div className="image-card">
+    <button className="image-card__button" type="button" onClick={onCardClick}>
+      <img
+        className="image-card__image"
+        src={image.urls.small}
+        alt={image.alt_description}
+      />
+    </button>
+    <div className="image-card__actions">
+      {isLiked && (
+        <Button
+          icon={IconName.Heart}
+          ariaLabel="Unlike"
+          onClick={onUnlikeClick}
         />
-      </button>
-      <div className="image-card__actions">
-        {isLiked && (
-          <Button
-            icon={IconName.Heart}
-            ariaLabel="Unlike"
-            onClick={onUnlikeClick}
-          />
-        )}
-      </div>
+      )}
     </div>
-  );
-};
+  </div>
+);

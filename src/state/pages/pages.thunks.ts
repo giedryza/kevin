@@ -31,7 +31,7 @@ export const initHomePage = (): Thunk => (dispatch, getState) => {
   }
 };
 
-export const fetchFavourites = (
+const fetchFavourites = (
   favourites: string[]
 ): PromiseThunk<Image[]> => async () => {
   const promises = favourites.map((id) =>
