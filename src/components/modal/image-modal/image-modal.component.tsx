@@ -1,60 +1,32 @@
-import { FC, useCallback, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { FC } from 'react';
 
 import 'components/modal/image-modal/image-modal.styles.scss';
 import { ModalLayout } from 'ui/modal-layout/modal-layout.component';
-import { router } from 'utils/router';
 import {
   META,
   TITLE_ID,
 } from 'components/modal/image-modal/image-modal.constants';
-import {
-  addToFavourites,
-  removeFromFavourites,
-  getImageDetails,
-} from 'state/images/images.thunks';
-import { State } from 'state/types';
-import {
-  isImageInFavourites,
-  selectImageDetails,
-} from 'state/images/images.selectors';
 import { Button } from 'ui/button/button.component';
 import { Icon, IconName } from 'ui/icon/icon.component';
+import { ImageDetails } from 'state/images/images.types';
 
 interface Props {
-  imageId: string;
+  image: ImageDetails;
+  isLiked: boolean;
+  onCloseClick: () => void;
+  onLikeClick: () => void;
+  onUnlikeClick: () => void;
 }
 
-export const ImageModal: FC<Props> = ({ imageId }) => {
-  const history = useHistory();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getImageDetails(imageId));
-  }, [dispatch, imageId]);
-
-  const image = useSelector((state: State) =>
-    selectImageDetails(state, imageId)
-  );
-  const isInFavourites = useSelector((state: State) =>
-    isImageInFavourites(state, imageId)
-  );
-
-  const closeModal = useCallback(() => {
-    history.push({
-      search: router.stringifyParams({ id: '' }),
-    });
-  }, [history]);
-
-  const like = () => dispatch(addToFavourites(imageId));
-
-  const unlike = () => dispatch(removeFromFavourites(imageId));
-
-  if (!image) return null;
-
+export const ImageModal: FC<Props> = ({
+  image,
+  isLiked,
+  onCloseClick,
+  onLikeClick,
+  onUnlikeClick,
+}) => {
   return (
-    <ModalLayout titleId={TITLE_ID} onClose={closeModal}>
+    <ModalLayout titleId={TITLE_ID} onClose={onCloseClick}>
       <article className="image-modal">
         <div className="image-modal__image-container">
           <img
@@ -66,19 +38,19 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
 
         <div className="image-modal__info-container">
           <div className="image-modal__actions">
-            {isInFavourites ? (
+            {isLiked ? (
               <Button
                 label="Unlike"
                 icon={IconName.Heart}
                 styleType="primary"
-                onClick={unlike}
+                onClick={onUnlikeClick}
               />
             ) : (
               <Button
                 label="Like"
                 icon={IconName.Heart}
                 styleType="secondary"
-                onClick={like}
+                onClick={onLikeClick}
               />
             )}
 
@@ -86,7 +58,7 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
               ariaLabel="Close"
               icon={IconName.Close}
               styleType="secondary"
-              onClick={closeModal}
+              onClick={onCloseClick}
             />
           </div>
 

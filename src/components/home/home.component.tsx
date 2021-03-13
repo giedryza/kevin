@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Grid } from 'ui/grid/grid.component';
 import { State } from 'state/types';
-import { ImageCard } from 'components/image-card/image-card.component';
+import { ImageCard } from 'components/image-card/image-card.container';
 
 export const Home: FC = () => {
   const ids = useSelector((state: State) => state.images.ids);

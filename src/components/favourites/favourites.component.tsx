@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { State } from 'state/types';
 import { Grid } from 'ui/grid/grid.component';
-import { ImageCard } from 'components/image-card/image-card.component';
+import { ImageCard } from 'components/image-card/image-card.container';
 
 export const Favourites: FC = () => {
   const favourites = useSelector((state: State) => state.images.favourites);
