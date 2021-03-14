@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 import { State } from 'utils/redux/types';
 import { Image, ImageDetails } from 'domain/images/images.types';
 
@@ -14,3 +16,6 @@ export const isImageWithDetails = (state: State, id: string): boolean =>
 
 export const isImageInFavourites = (state: State, id: string) =>
   state.images.favourites.includes(id);
+
+export const makeIsImageInFavouritesSelector = () =>
+  createSelector(isImageInFavourites, (isInFavourites) => isInFavourites);

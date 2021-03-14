@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -6,8 +6,8 @@ import { ImageCard as Component } from 'components/image-card/image-card.compone
 import { State } from 'utils/redux/types';
 import { router } from 'utils/lib/router';
 import {
-  isImageInFavourites,
   selectImageById,
+  makeIsImageInFavouritesSelector,
 } from 'domain/images/images.selectors';
 import { removeFromFavourites } from 'domain/images/images.thunks';
 
@@ -20,8 +20,12 @@ export const ImageCard: FC<Props> = ({ id }) => {
   const dispatch = useDispatch();
 
   const image = useSelector((state: State) => selectImageById(state, id));
+  const selectIsImageInFavourites = useMemo(
+    makeIsImageInFavouritesSelector,
+    []
+  );
   const isInFavourites = useSelector((state: State) =>
-    isImageInFavourites(state, id)
+    selectIsImageInFavourites(state, id)
   );
 
   const unlike = () => dispatch(removeFromFavourites(id));

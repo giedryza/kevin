@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect } from 'react';
+import { FC, useCallback, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,7 +11,7 @@ import {
   getImageDetails,
 } from 'domain/images/images.thunks';
 import {
-  isImageInFavourites,
+  makeIsImageInFavouritesSelector,
   selectImageDetails,
 } from 'domain/images/images.selectors';
 
@@ -30,8 +30,12 @@ export const ImageModal: FC<Props> = ({ imageId }) => {
   const image = useSelector((state: State) =>
     selectImageDetails(state, imageId)
   );
+  const selectIsImageInFavourites = useMemo(
+    makeIsImageInFavouritesSelector,
+    []
+  );
   const isInFavourites = useSelector((state: State) =>
-    isImageInFavourites(state, imageId)
+    selectIsImageInFavourites(state, imageId)
   );
 
   const closeModal = useCallback(() => {
